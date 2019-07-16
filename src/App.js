@@ -38,7 +38,7 @@ const pageList = [
     comp: Home
   },
   {
-    path: '/caesar-cipher',
+    path: process.env.PUBLIC_URL+'/caesar-cipher',
     title: 'Caesar Cipher',
     comp: Caesar
   },
@@ -105,17 +105,17 @@ class App extends Component {
   render() {
     var menuLinks = pageList.map(function(i){
       return (
-        <a href={ROOT+i.path} className="w3-bar-item w3-button">{i.title}</a>
+        <a href={i.path} className="w3-bar-item w3-button">{i.title}</a>
       );
     });
     var routes = pageList.map(function(i){
       if (i.path=='/') {
         return (
-          <Route exact path={ROOT+i.path} component={i.comp}/>
+          <Route exact path={i.path} component={i.comp}/>
         )
       } else {
         return (
-          <Route path={ROOT+i.path} component={i.comp}/>
+          <Route path={i.path} component={i.comp}/>
         )
       }
     });
